@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "faraday"
-  spec.add_dependency "faraday-typhoeus"
-  spec.add_dependency "event_stream_parser"
+  spec.add_dependency "faraday", "~> 2.12"
+  spec.add_dependency "faraday-typhoeus", "~> 1.1"
+  spec.add_dependency "event_stream_parser", "~> 1.0"
 end

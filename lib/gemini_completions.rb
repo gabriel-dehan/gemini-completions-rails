@@ -6,7 +6,7 @@ require "gemini_completions/validators/message"
 
 require "gemini_completions/client"
 require "gemini_completions/tool"
-require "gemini_completions/completion_streamer"
+require "gemini_completions/streamer"
 
 
 module GeminiCompletions
