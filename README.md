@@ -1,18 +1,18 @@
 # GeminiCompletions Rails (WIP)
 
-A basic wrapper for the Google Gemini API with support for function calling and tools and streaming in Rails.
+A basic wrapper for the Google Gemini API with support for multi-turn function calling and streaming in Rails.
 
 ⚠️ This gem is still under development and not available as a gem yet. ⚠️
 
 - [GeminiCompletions Rails (WIP)](#geminicompletions-rails-wip)
   - [Installation](#installation)
-  - [Gemini Completions Client](#gemini-completions-client)
+  - [GeminiCompletions::Client](#geminicompletionsclient)
     - [Creating a client](#creating-a-client)
       - [Configuration Options](#configuration-options)
     - [Generating Content](#generating-content)
       - [Configuration Options](#configuration-options-1)
     - [Streaming the response](#streaming-the-response)
-  - [GeminiCompletions Streamer](#geminicompletions-streamer)
+  - [GeminiCompletions::Streamer](#geminicompletionsstreamer)
     - [Usage](#usage)
     - [Parameters](#parameters)
   - [Function Calling / Tools](#function-calling--tools)
@@ -54,7 +54,7 @@ The gem comes with two big components:
 - `GeminiCompletions::Client`, a client for the Gemini API, that can be used as a standalone client
 - `GeminiCompletions::Streamer`, a class to handle the streaming of the response in your Rails controllers
 
-## Gemini Completions Client
+## GeminiCompletions::Client
 
 ### Creating a client
 
@@ -148,7 +148,7 @@ client.generate_content([
 end
 ```
 
-## GeminiCompletions Streamer
+## GeminiCompletions::Streamer
 
 If you want to stream the response from the client in your Rails controllers, you can use the `GeminiCompletions::Streamer` class.
 
