@@ -1,3 +1,7 @@
+require "faraday"
+require "faraday/typhoeus"
+require "event_stream_parser"
+
 require "gemini_completions/version"
 require "gemini_completions/error"
 

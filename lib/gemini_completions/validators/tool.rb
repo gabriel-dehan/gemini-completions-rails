@@ -32,7 +32,7 @@ module GeminiCompletions
       private
 
       def tool_registered
-        unless Gemini::Tool.find_by_name(name)
+        unless GeminiCompletions::Tool.find_by_name(name)
           errors.add(:name, "tool not registered")
         end
       end

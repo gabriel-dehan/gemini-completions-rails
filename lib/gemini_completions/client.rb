@@ -49,7 +49,7 @@ module GeminiCompletions
     # @option options [Float] :top_p (nil) Nucleus sampling parameter (0.0 to 1.0)
     # @option options [Integer] :top_k (nil) Top-k sampling parameter
     #
-    # @raise [Gemini::Error] if the API returns an error
+    # @raise [GeminiCompletions::Error] if the API returns an error
     #
     # @return [Hash] The response from the API
     #
@@ -90,7 +90,7 @@ module GeminiCompletions
         if response.status == 200
           response
         else
-          raise Gemini::Error.new(response.body)
+          raise GeminiCompletions::Error.new(response.body)
         end
       else
         url = "#{BASE_URL}/models/#{@model}:generateContent?key=#{@api_key}"
@@ -103,7 +103,7 @@ module GeminiCompletions
         if response.status == 200
           parsed_response
         else
-          raise Gemini::Error.new(parsed_response['error']['message'])
+          raise GeminiCompletions::Error.new(parsed_response['error']['message'])
         end
       end
     end
@@ -146,7 +146,7 @@ module GeminiCompletions
 
       contents.each do |message|
         puts "MESSAGE: #{message}"
-        Gemini::Validators::Message.new(message).validate!
+        GeminiCompletions::Validators::Message.new(message).validate!
       end
     end
   end

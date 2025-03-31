@@ -3,7 +3,7 @@ module GeminiCompletions
   # Utility class that streams the completion of a conversation to the client
   # Allows for tool calls to be used
   #
-  # @attr_reader [Gemini::Client] client The Gemini client
+  # @attr_reader [GeminiCompletions::Client] client The Gemini client
   # @attr_reader [ActionDispatch::Response] response The response object
   class Streamer
     attr_reader :client, :response, :text_buffer
@@ -22,12 +22,12 @@ module GeminiCompletions
     # @param contents [Array] The conversation history to send to the model
     # @param options [Hash] Additional options for the completion request
     # @option options [String] :systemInstruction The system instructions to use for the completion
-    # @option options [Array] :tools A list of Gemini::Tool subclasses that should be available for the model to use
+    # @option options [Array] :tools A list of GeminiCompletions::Tool subclasses that should be available for the model to use
     # @param block [Proc] A callback to call when the completion is done
     #
     # @return [ActionDispatch::Response] The response object
     def stream_completion(contents = [], options = {})
-      raise Gemini::Error, "Stream completion requires contents" if contents.empty?
+      raise GeminiCompletions::Error, "Stream completion requires contents" if contents.empty?
 
       # Streaming headers
       response.headers['Content-Type'] = 'text/event-stream'
@@ -170,7 +170,7 @@ module GeminiCompletions
         tool_name = function_call_data["name"]
         tool_args = function_call_data["args"]
 
-        tool = Gemini::Tool.find_by_name(tool_name)
+        tool = GeminiCompletions::Tool.find_by_name(tool_name)
 
         begin
           result = tool.call(tool_args)
@@ -197,12 +197,12 @@ module GeminiCompletions
       # Prevents infinite loops of tool calls
       #
       # @param tool_calls_count [Integer] Current count of tool call rounds
-      # @raise [Gemini::Error] When maximum tool calls is exceeded
+      # @raise [GeminiCompletions::Error] When maximum tool calls is exceeded
       def enforce_max_tool_uses(tool_calls_count)
         if tool_calls_count >= MAX_RECURSIVE_TOOL_CALLS
           error_message = "Maximum number of tool calls reached (#{MAX_RECURSIVE_TOOL_CALLS})"
           write_to_stream(data: error_message, event: "error")
-          raise Gemini::Error, error_message
+          raise GeminiCompletions::Error, error_message
         end
       end
 

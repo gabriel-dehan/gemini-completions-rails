@@ -2,9 +2,9 @@ PATH
   remote: .
   specs:
     gemini-completions-rails (0.1.0)
-      event_stream_parser
-      faraday
-      faraday-typhoeus
+      event_stream_parser (~> 1.0)
+      faraday (~> 2.12)
+      faraday-typhoeus (~> 1.1)
 
 GEM
   remote: https://rubygems.org/
