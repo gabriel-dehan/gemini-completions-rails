@@ -4,6 +4,27 @@ A basic wrapper for the Google Gemini API with support for function calling and 
 
 ⚠️ This gem is still under development and not available as a gem yet. ⚠️
 
+- [GeminiCompletions Rails (WIP)](#geminicompletions-rails-wip)
+  - [Installation](#installation)
+  - [Gemini Completions Client](#gemini-completions-client)
+    - [Creating a client](#creating-a-client)
+      - [Configuration Options](#configuration-options)
+    - [Generating Content](#generating-content)
+      - [Configuration Options](#configuration-options-1)
+    - [Streaming the response](#streaming-the-response)
+  - [GeminiCompletions Streamer](#geminicompletions-streamer)
+    - [Usage](#usage)
+    - [Parameters](#parameters)
+  - [Function Calling / Tools](#function-calling--tools)
+    - [Defining a Tool](#defining-a-tool)
+      - [Retrieving defined tools](#retrieving-defined-tools)
+    - [Using tools with the Client](#using-tools-with-the-client)
+      - [Handling the response](#handling-the-response)
+    - [Using tools with the completions streamer](#using-tools-with-the-completions-streamer)
+  - [Contributing](#contributing)
+  - [License](#license)
+
+
 ## Installation
 
 Add this line to your application's Gemfile:
