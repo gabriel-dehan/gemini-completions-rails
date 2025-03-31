@@ -9,7 +9,7 @@ A basic wrapper for the Google Gemini API with support for function calling and 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'gemini-completions-rails', git: 'https://github.com/gabriel-dehan/gemini_completions.git'
+gem 'gemini-completions-rails', git: 'https://github.com/gabriel-dehan/gemini-completions-rails.git'
 ```
 
 And then execute:
